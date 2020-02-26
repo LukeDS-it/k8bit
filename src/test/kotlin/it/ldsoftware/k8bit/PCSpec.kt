@@ -1,6 +1,5 @@
 package it.ldsoftware.k8bit
 
-import it.ldsoftware.k8bit.Chip8Processor
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 
