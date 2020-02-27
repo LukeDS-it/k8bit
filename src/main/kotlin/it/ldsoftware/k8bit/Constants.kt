@@ -1,6 +1,7 @@
 package it.ldsoftware.k8bit
 
 object Constants {
+    const val CHAR_HEIGHT = 5
     const val EMPTY = 0
 
     val CHARACTERS: Array<Int> = arrayOf(

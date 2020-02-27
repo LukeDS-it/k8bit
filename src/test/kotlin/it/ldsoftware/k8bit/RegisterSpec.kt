@@ -23,7 +23,7 @@ class RegisterSpec {
         val value = 0x5A
         val remaining = reg shl 8 or value
 
-        subject.store(remaining)
+        subject.put(remaining)
 
         assertThat(subject.v[reg]).isEqualTo(value)
     }

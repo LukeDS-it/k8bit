@@ -654,9 +654,9 @@ class Chip8Spec {
         val subject = Chip8Processor(out = output)
 
         val program = Program()
-            .store(0, 2)
+            .put(0, 2)
             .setSound(0)
-            .cls()
+            .nop()
             .compiled()
 
         subject.load(program)

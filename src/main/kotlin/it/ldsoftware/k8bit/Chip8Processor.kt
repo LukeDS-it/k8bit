@@ -86,7 +86,7 @@ class Chip8Processor(
             0x3 -> eq(remaining)
             0x4 -> neq(remaining)
             0x5 -> eqreg(remaining)
-            0x6 -> store(remaining)
+            0x6 -> put(remaining)
             0x7 -> add(remaining)
             0x8 -> math(remaining)
             0x9 -> neqreg(remaining)
@@ -165,7 +165,7 @@ class Chip8Processor(
     /**
      * 0x6XNN
      */
-    internal fun store(remaining: Int): Boolean {
+    internal fun put(remaining: Int): Boolean {
         val reg = getPos0(remaining)
         v[reg] = remaining and 0x0FF
         return true

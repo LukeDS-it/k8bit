@@ -1,5 +1,7 @@
 package it.ldsoftware.k8bit.compiler
 
+import it.ldsoftware.k8bit.Constants
+
 /**
  * This class provides a program editor that can be used to build programs without writing hex codes.
  */
@@ -64,7 +66,7 @@ class Program {
      * @param register the register where to store the value
      * @param value    the value to store
      */
-    fun store(register: Int, value: Int): Program = addOperation(0x60 + register, value)
+    fun put(register: Int, value: Int): Program = addOperation(0x60 + register, value)
 
     /**
      * `0x7XNN` add the value NN to register X
@@ -281,7 +283,17 @@ class Program {
     /**
      * Does nothing. Technically not a recognized command.
      */
-    fun nop(): Program = addOperation(Operation(0xF0, 0x00))
+    fun nop(): Program = addOperation(0xF0, 0x00)
+
+    /**
+     * Draws a single character on screen. This is **not** an opcode, but a shortcut, so be sure to backup
+     * all your important variables before making this call.
+     *
+     * @param x    the x coordinate of the character
+     * @param y    the y coordinate of the character
+     * @param char the character (0 - F) to draw
+     */
+    fun drawChar(x: Int, y: Int, char: Int): Program = put(0, char).chr(0).draw(x, y, Constants.CHAR_HEIGHT)
 
     private fun addOperation(op: Operation): Program {
         code.add(op.part1)
