@@ -10,7 +10,7 @@ class GraphicSpec {
         val subject = Chip8Processor()
         subject.load(arrayOf(0x10, 0x02, 0x3C, 0xC3, 0xFF))
         subject.v[0] = 16
-        subject.i = 2
+        subject.i = 0x202
 
         val xPos = 0
         val yPos = 0

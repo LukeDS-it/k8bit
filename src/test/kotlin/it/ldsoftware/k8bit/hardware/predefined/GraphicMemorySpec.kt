@@ -1,5 +1,6 @@
-package it.ldsoftware.k8bit
+package it.ldsoftware.k8bit.hardware.predefined
 
+import it.ldsoftware.k8bit.expand
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 
@@ -59,7 +60,7 @@ class GraphicMemorySpec {
         subject.draw(x, y, lines)
         subject.clear()
 
-        assertThat(subject.backingArray).doesNotContain(1)
+        assertThat(subject.getScreen()).doesNotContain(1)
     }
 
 }
